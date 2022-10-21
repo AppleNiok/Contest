@@ -1,0 +1,17 @@
+// https://leetcode.com/contest/weekly-contest-315/problems/count-subarrays-with-fixed-bounds/
+
+
+class solution{
+public:
+    long long countSubarrays(vector<int>& A,int minK, int maxK){
+        long res = 0, jbad = -1,jmin = -1, jmax = -1, n = A.size();
+        for(int i = 0; i < n; ++i){
+            if(A[i] < minK || A[i] > maxK) jbad = i;
+            if(A[i] == minK) jmin = i;
+            if(A[i] == maxk) jmax = i;
+            res += max(0 , min(jmax , jmin)- jbad);
+        }
+        return res;
+    }
+
+}
